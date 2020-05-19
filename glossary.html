@@ -1,0 +1,368 @@
+<html>
+<!--<link href="style/global_9.3.3.css" rel="stylesheet">-->
+<style>
+
+.glossary-entry {
+	margin: 10px 0px 10px 0px;
+	border: solid 1px #ddd;
+	border-radius: 2px;
+	padding: 5px 20px 10px 20px;
+	background: #fff;
+}
+
+.glossary-entry:hover {
+	box-shadow: 1px 1px 4px rgba(0, 0, 0, .3);
+}
+
+.glossary-key {
+	font-size: 150%;
+}
+.glossary-value {
+	margin-top: 15px;
+}
+
+.glossary-link {
+	font-weight: bold;
+	cursor: hand;
+	color: #0092c2;
+}
+
+.glossary-head-link {
+	font-weight: bold;
+	cursor: hand;
+	color: #505050;
+}
+
+</style>
+
+<h1>Glossary of linguistic terms</h1>
+
+<p>Search: <input
+            autocorrect="off"
+            autocapitalize="off"
+            id="glossary-search"
+            onkeyup="filter()"
+            type="text"></input> <a class='glossary-link' onclick="clearSearch()">clear</a></p>
+
+<div id="results">
+
+<div>
+
+<script>
+
+/*
+TO DO
+
+nominative
+accusative
+ergative
+absolutive
+dative
+genitive
+locative
+instrumental
+ablative
+morpheme
+phonetics
+null morpheme
+auxlang
+artlang
+Possessive / possession
+mood
+TAM
+perfect
+imperfect
+imperfective
+aspect
+voice
+past
+present
+future
+noun phrase
+masculine
+feminine
+neuter
+inclusive
+exclusive
+dual
+paucal
+derived word
+compound word
+vowel harmony
+stress
+foot
+homonym
+homophone
+phonological rule
+phonolgical change
+tie bar
+affricate
+diacritic
+zero onset
+rime
+syllabic consonant
+alphabet
+evidentiality
+root word
+stem
+infix
+cirxumfix
+disfix
+{demonstrative pronoun|demonstrative pronouns},
+{relative pronoun|relative pronouns} and
+{interrogative pronoun|interrogative pronouns}
+*/
+
+var glossary = { //a = abbreviation, d = definition
+'accusative': {a:'', d: 'A case that marks the word or words in the sentence that make up the item that the {verb} refers to, or is being done on. In the sentence [The man sees the dog], [the dog] is in the accusative case. The dog is being seen by the man, and is therefore the {direct object}. Many languages mark the direct object with morphemes that denote the accusative case, or have special versions of words to be used.'},
+
+'adjective': {a:'ADJ', d: 'A {word class} that “describes” a {noun}, such as [happy], [tall], [amazing]. In English, adjectives come before the noun — [the ((happy)) dog] — however in other languages they come after. They may also occur after the noun in a {predicate} position — [the dog is ((happy))]. Some languages {inflection|inflect} adjectives based on grammatical properties of the noun: in Spanish, a plural {suffix} is added to the adjective if the noun is plural, and the adjective is modified to match the {grammatical gender|gender} of the noun.'},
+
+'adposition': {a: '', d: 'An overarching {word class} for {preposition|prepositions} and {postposition|postpositions}. Adpositions express spatial or temporal relations ([in], [under], [towards], [before]) or mark various semantic roles ([of], [for]).'},
+
+'article': {a:'ART', d: 'A word that expresses the {definiteness} of a {noun}. In English, articles include the {definite article} ([the]) and the {indefinite article} ([a]). In other languages, articles may be expressed as {affix|affixes} attached to the word. Some languages do not have articles, and therefore the expression of definiteness is not mandatory (although there may be other ways to optionally express it). Note that in English, definiteness is mandatory: you must say [I saw a cat] or [I saw the cat] and not [I saw cat].' +
+
+'<p>Articles are considered to be a part of the {word class} of {determiner|determiners}, along with {demonstrative|demonstratives}.'},
+
+'adverb': {a:'ADV', d: 'A {word class} that describes [how] a {verb} is performed: [She sang ((loudly))], [He walked ((slowly))]. Adverbs may also modify {adjective|adjectives}: [She is ((extremely)) smart]. In English, most adjectives can be formed into adverbs by adding -ly. However, adverbs are a notoriously mixed class and include many words that are hard to identify. Examples: [We sat ((here))] ([here] describes where the sitting happened) and [I worked ((yesterday))] ([yesterday] describes when the work happened).'},
+
+'affect': {a: '', d: 'A {grammatical category} that conveys an attitude or emotion, such as affection, respect, sympathy, distaste, sarcasm, etc. In many languages of Europe, adding an {augmentative|augmentative} affix to a noun expresses contempt or other negative attitudes toward the noun, whereas {diminutive|diminutives} express affection or positive attitudes.'},
+
+'affix': {a:'', d: 'A {morpheme} that is attached to a {root} word. Affixes form a new word or new form of a word. An affix added before the root is a {prefix}. In English, the prefix [un-] can be attached to an adjective to express the opposite meaning: [uncommon]. An affix at the end is a {suffix}: [sad] + [-ly] = [sadly]. {circumfix|Circumfixes} are a combination of prefix and suffix. For instance, in Malay the word [adil] “fair” can add the circumfix [((ke))adil((an))] to make “fairness”. {infix|Infixes} add something in the middle of the word: in Khmer, [leun] “fast” can add the infix -b- to form [l((b))eun] “speed”.' +
+
+'<p>All these examples are {derivation|derivational} affixes — they form completely new words. This constrasts with grammatical affixes which create new forms of the same words: eg English’s {plural} suffix changes [dog] to [dogs].'},
+
+'augmentative': {a: 'AUG', d: 'A word which has been modified to convey expresses greater intensity, often in size but also in other attributes. In English, the prefixes [super-] and [mega-] are examples of augmentatives: [supermarket], [superpower], [megastore], [megastar]. In other languages, augmentatives may be used for comical effect or as pejoratives. Augmentative is a type of {affect} and is the opposite of {diminutive}.'},
+
+'auxiliary verb': {a:'AUX', d: 'A “helper” {verb} which is used with another main verb to provide extra information, such as {tense}, {aspect}, {voice}, or {mood}. For example, in the sentence [I ((will)) see the movie], [will] provides information about future tense to the main verb [see]. In English, other auxiliaries include [be], [do], [have], [can], [could], [may], [might,] [must], [will] and [would].' +
+
+'<p>Auxiliary verbs differ from {particle|particles}, in that they can vary in form (do, does, did) and do not form their own distinct {part-of-speech}.'},
+
+'case': {a:'', d: 'A {grammatical category} that expresses the function of a {noun} or {pronoun} in a sentence. For example, whether it is the doer of a verb ([((I)) saw the man]) or the thing acted upon by the doer ([The man saw ((me))]). English expresses {nominative} and {accusative} case in its pronouns ([I] vs [me], [he] vs [him], etc.), however other languages can express case in nouns too. Additionally {adjective|adjectives} and {demonstrative|demonstratives} may show {agreement} with noun cases.' +
+
+'<p>Other kinds of cases include {dative}, {genitive}, {locative}, {ablative}, and {instrumental}.'},
+
+'coda': {a: '', d: 'The {consonant|consonants} in a {syllable} that follow the {nucleus} (which is usually the {vowel} of the syllable). The nucleus and coda make up the {rime}.'},
+
+'colexification': {a:'', d: 'The coexistence of many possible related meanings for a word or phrase. Types of colexification include {polysemy} and {homophony}.'},
+
+'common noun': {a:'', d: 'A type of {noun} denoting physical things such as [dog] and [table], as well as abstract things such as [criticism] and [tolerance]. Contrasts with {proper noun}.'},
+
+'conjunction': {a: 'CONJ', d: 'A {word class} used to join words or sentences together. Examples in English include: [and], [or], [but], [because], [although], [if], [since] and [when]. '},
+
+'consonant': {a:'', d: 'A speech sound articulated with complete or partial closure of the vocal tract. Consonants contrast with {vowel|vowels} which have an open vocal tract. In English, consonants are the speech sounds typically represented by the {letter|letters}: b, d, c, f, g, h, j, k, l, m, n, p, q, r, s, t, v, w, x, y and z.'},
+
+'constructed language': {a: 'conlang', d: 'A {language} which has been consciously developed, as opposed to having developed {natural language|naturally}. Conlangs typically fall into one of two broad categories. {auxiliary language|Auxiliary languages} are designed to be significantly easier to learn than natural languages, by having simple and regular grammar rules, and usually have aspirations of being adopted as a global language. In contrast, {artistic language|artistic languages} are desgined for artistic purposes, either to be a part of a fictional setting, or simply as a hobby.'},
+
+'dative': {a: '', d: 'A case which is used to mark the recipient or beneficiary of the action committed by the {subject}, or the "doer”. In the sentence [Give me bread], [me] is in the dative case. Since the speaker--the person referred to as [me]--would receive the bread, they act as the {indirect object}. The indirect object is almost always in the dative case. As with other cases, many languages mark this case with special {morphemes}.'},
+
+'definite article': {a: 'DEF', d: 'An {article} used to refer to a {noun} that has just been mentioned, or is assumed to be familiar or uniquely identifiable in some way. In English, the definite article is the word [the], contrasting with the {indefinite article} [a]. Compare [I saw the man] (a known, identifiable man) with [I saw a man] (any man).'},
+
+'definiteness': {a: '', d: 'A {grammatical category} expressing whether a {noun} is known or identifiable in a given context. In English, the {indefinite article} is the word [a], contrasting with the {definite article} [the]. Compare [I saw the man] (a known, identifiable man) with [I saw a man] (any man). Some languages may express definiteness with {affix|affixes} rather than stand alone words.'},
+
+'diphthong': {a: '', d: 'A combination of two distinct {vowel|vowels} in the same {syllable}, such as in the word “cow” (/aʊ/ in {IPA}). A languages may or may not have a set of diphthongs as {phoneme|phonemes}. Diphthongs contrast with {monophthong|monophthongs}.'},
+
+'function word': {a: '', d: 'A word that mainly expresses grammatical meaning, and little or no lexical meaning of its own. Function words may include {preposition|prepositions}, {pronoun|pronouns}, {auxiliary verb|auxiliary verbs}, {conjunction|conjunctions}, {article|articles} and {particle|particles}.'},
+
+'demonstrative ': {a: 'DEM', d: 'A {determiner} or {pronoun} that expresses a spatial relationship from the speaker. In English, demonstratives are the words [this] and [that].'},
+
+'determinative ': {a: 'DET', d: 'See {determiner}.'},
+
+'determiner': {a: 'DET', d: 'A {closed class|closed} {word class} used with {noun|nouns} that limit their meaning in some way. In English, determiners include {article|articles} ([a], [the]), {demonstrative|demonstratives} ([this], [that]), {possessive determiner|possessive determiner} ([my] and [their]), {quantifier|quantifiers} ([many], [few] and [several]), {distributive determiners|distributive determiners]} ([each], [any]), and {interrogative determiner|interrogative determiners} ([which]). '},
+
+'diminutive': {a: 'DIM', d: 'A word that has been modified to convey smallness or affection. For example, in Italian [casa] “house” can add the {infix} -ett- [casetta] “little house”. When used to be purely affectionate, a diminutive may be applied to something even if it is not particularly small. For example, in Spanish [gord]o can be a nickname for someone who is overweight, and by adding an infix -it- [gordito] which is more affectionate. On the other hand, diminutives are frequently used to belittle or be dismissive. A diminutive is a type of {affect} and is the opposite of {augmentative}.'},
+
+'genitive': {a: '', d: 'The genitive case is used when one word modifies another word, creating a relationship between them. Generally, the words in this relationship are {nouns}. There are many functions of the genitive case, some of which are: to denote possession ([Bill’s dog]), to denote origin ([women of Troy]), or forms of description in relation to another noun ([Father of the bride]). This case is marked in most languages by either a specific {morpheme} or a set of such morphemes.'},
+
+'grammar': {a:'', d: 'The rules of a language, encompassing {syntax} and {morphology}. In a strictly linguistic sense, “grammar” is not concerned with {spelling} and {punctuation}, nor it is concerned with judgement vales about “proper” ways of speaking. Rather, it is the internal rules that native speakers of a language unconsciously understand and obey: word order, compositions of sentences, use of affixes, etc.'},
+
+'grammatical category': {a:'', d: 'Any concept or property that is expressed in the grammar of a language. For example, English {noun|nouns} express the grammatical category of {number}: either {singular} (dog) or {plural} (dogs). English {verb|verbs} express the category of {tense}: present (walk), past (walked), and future (will walk).' +
+
+'<p>A category must have two or more possible “values”. In the case of English {grammatical number|number}, singular and plural are its values. Other languages may have a different set of values: for example, some languages express {dual} number (for exactly two of something). Languages may also express whole categories that English does not. For example, some languages expresses whether the {noun} is the doer of the verb or the done-to of the verb (this is known as {noun case|case}).'},
+
+'grammatical gender': {a:'', d: 'A system that classifies the {noun|nouns} of a language into distinct categories, forming an {agreement} system with other aspects of the language. Unlike other {grammatical category|grammatical categories}, which express meaningful concepts (such as {tense}, or {grammatical number|number}), grammatical gender is a mostly {redundancy|redundant} feature of language, which simply adds extra {inflection} to words in a sentence. Furthermore, given that most nouns describe inanimate objects or abstract concepts, grammatical gender rarely has any meaningful relationship with the biological gender of nouns. This gives the appearance of gender being assigned to nouns fairly arbitrarily. Therefore, “gender” may be thought of as a misnomer, and some linguists use the phrase {noun class} instead. Despite this, many languages with grammatical gender align words for masculine things with the {masculine} gender (such as “man”, “boy”, “son”), and words for feminine things with the {feminine} gender (“woman”, “girl”, “daughter”). However, not even this is perfectly logical; the German word for “girl” has {neuter} gender.' +
+
+'<p>If a language has a gender system, it usually has masculine and feminine, and optionally neuter gender, although other genders are possible.'},
+
+'grammatical number': {a: '', d: 'A {grammatical property} that expresses quantity, such as {singular} vs {plural}. In English, number is expressed in {noun|nouns} via the presence of absence of a plural suffix: [dog] vs [dogs]. Some other languages have a {dual} number (for exactly two of something) or a {paucal} number, for “a few” of something (as opposed to many). Some languages, espeically Asian lanuages, do not express distinctions such as singular and plural at all. In such languages, it is usually obvious from context whether the speaker it talking about one or many of something.'},
+
+'grammatical person': {a: '', d: 'A {grammatical property} that distinguishes between 1st person, 2nd person and 3rd person. In English, as in many languages, person is expressed in {pronoun|pronouns} — [I], [you], [he/she] — and is often fused with {grammatical number|number} — [I] (1st person singular) vs [we] (1st person plural). Other {word class|word classes} may {agreement|agree} with person: in English, present tense verbs agree with 3rd person singular — [I/you/we/they walk] vs [he/she walk((s))].'},
+
+'indefinite article': {a: 'INDEF', d: 'An {article} used to refer to a {noun} that has no particular identifiable reference. In English, the indefinite article is the word [a], contrasting with the {definite article} [the]. Compare [I saw the man] (a known, identifiable man) with [I saw a man] (any man).'},
+
+'inflection': {a:'', d: 'The modification of a word to express different {grammatical category|grammatical categories}. A word may be inflected by adding an {affix}, or by changing a sound in a word, or both. English creates plural nouns by adding the affix -s: [dog] > [dogs]. Various verbs use sound changes in their past tense form: [know] > [knew], [teach] > [taught].'},
+
+'interjection': {a: 'INTERJ', d: 'A {word class} denoting words that express a spontaneous feeling or reaction, including exclamations and curses ([ouch!], [wow!], [damn!]), greetings ([hello], [goodbye]) and response particles ([okay], [oh!], [m-hm], [huh?]). Interjections are their own utterances, and, unlike other {part-of-speech|parts-of-speech}, do not occur in a larger sentence. Additionally, they may be longer than a single word: [For heaven’s sake!]'},
+
+'International Phonetic Alphabet': {a:'IPA', d: 'A phonetic alphabetic designed to standardize the representation of the sounds of spoken languages around the world.'},
+
+'intransitive verb': {a:'VI', d: 'A verb that is [not] done to something (i.e does not take a {direct object}). For example, with the verb [laugh], “I laughed” is grammatically complete, and adding a direct object such as “I laughed ((something))” makes it grammatically incorrect. Intransitive verbs contrast with {transitive verb|transitive} verbs, which do take direct objects. Certain verbs are both transitive and intransitive, for example [sing]: “I sang” (intransitive) and “I sang ((a song))” (transitive).'},
+
+'letter': {a:'', d: 'A symbol of a phonemic {writing system}, such as an {alphabet}. A letter is a type of {grapheme}, which usually corresponds to a single {phoneme} within a language. For example, the English letter ((m)) corresponds to the phoneme /m/. However, the letter ((g)) may correspond the phoneme /g/ as in [go], or /dʒ/ as in [giraffe]. Alternatively, multiple letters may correspond to a single phoneme: both ((c)) in [cat] and ((k)) in [king]] correspond to the phoneme /k/.'},
+
+'lexical': {a:'', d: 'Relating to words as units of the vocabulary.'},
+
+'lingusitics': {a:'', d: 'The scientific study of {language}, which involves analysing language form and meaning. Broad categories in linguistics include {phonetics}, {phonology}, {grammar}, {sociolinguistics}, {psycholinguistics} and {computational linguistics}.'},
+
+'marked': {a:'', d: 'A marked word refers to a word that has been {inflected|inflection} in some way to express a {grammatical property}, either by having an {affix} added to it, or a {sound change}. For example, the word [dogs] is “marked” by the {plural} suffix -s. In contrast, the {singular} form [dog] is said to be “unmarked”.'},
+
+'monophthong': {a: '', d: 'A single {vowel}; not a {diphthong}.'},
+
+'morphology': {a:'', d: 'The patterns of word formation in a language, including {inflection}, {derivation|word derivation} and {compound words|compounding}. See also {syntax}.'},
+
+'natural language': {a:'', d: 'A {language} which has developed naturally, as opposed to a {constructed language}.'},
+
+'nominative': {a: '', d: 'A case generally used for the noun that is [doing] the verb in the sentence. For example, take the sentence: [The man sees the dog], [The man] is in the nominative case, which is said to be the subject of the verb [sees]. A word in the nominative case is generally the form of the word with the least marking for case, and in many languages no marking at all appears on words in the nominative.'},
+
+'noun': {a:'N', d: 'A {word class} that denotes a person, place or thing. Nouns can be subdivided into {common noun|common nouns}, which are physical things such as [dog] and [table], as well as abstract things such as [criticism] and [tolerance], or {proper noun|proper nouns}, which are persons or places, e.g. [John], [New York]. In English, common nouns usually require an {article} ([a], [the]) and use morphology for plurality.'},
+
+'nucleus': {a: '', d: 'The peak of a {syllable}, which is usually the {vowel} in the middle of a syllable. A minimal syllable consists only of a nucleus, as in the English words “eye” or “owe”. Although usually a vowel, it is sometimes is a {syllabic consonant}, such as in the word “syllable” sy-lla-((ble)) (here we are concerned with the pronunciation, not the spelling, so the final syllable is a [bl] sound, with [l] being the nucleus).'},
+
+'onset': {a: '', d: 'The {consonant|consonants} in a {syllable} occurring before the {nucleus} (which is usually the {vowel} of the syllable). Most syllables have an onset. Syllables without an onset may be said to have a {zero onset}.'},
+
+'orthography': {a:'', d: 'The study of how words are spelled.'},
+
+'part-of-speech': {a:'POS', d: 'Also known as a ((word class)). A category of words that have similar grammatical properties. Examples of parts-of-speech are {noun}, {verb}, {adjective}, {adverb}, preposition, conjunction, interjection, numeral, article, and determiner. Different languages may have a different set on parts-of-speech. For instance, Latin does not have articles; Finnish does not have prepositions.'},
+
+'particle': {a:'PART or PTCL', d: 'A {word class} of {function word|function words} that express grammatical meaning, and no lexical meaning of their own, such as “not”, and the “infinitve to”  (as in “((to)) be”). Particles differ from other kinds of function words, such as {article|articles}, {preposition|prepositions} and {conjunction|conjunctions}, by being words that do not conveniently fit into other classes, and that cannot be {inflection|inflected}.'},
+
+'personal pronoun': {a:'', d: 'A {pronoun} that expresses {grammatical person}: first person ([I], [we]); second person ([you]); third person ([he], [she], [it], [they]). In English, personal pronouns also express {grammatical number|number} (singluar [he] vs plural [they]), {case} ([we] vs [us]) and sometimes {grammatical gender|gender} ([he] vs [she]).'},
+
+'phonology': {a:'', d: 'The study of sounds in language (and signs in sign language).'},
+
+'plural': {a:'PL', d: 'A type of {grammatical number|number} which expresses more than one of something. For example, the plural form of [dog] is [dogs]. Plural contrasts with {singular}.'},
+
+'homophone': {a:'', d: 'Two or more words with the same pronunciation.'},
+
+'polysemy': {a:'', d: 'The coexistence of many possible related meanings for a word or phrase. Polysemy differs from a {homophone|homophony}, in that polysemes are closely related concepts. For example the word [man] either refers to male humans, or mankind itself. Whereas homophones are an accidental similarity between two words (such as [bear] the animal, and the verb [to bear]). Polysemy is kind of {colexification}.'},
+
+'postposition': {a: '', d: 'A {preposition} that comes after a {noun phrase}, as opposed to before. Prepositions and postposition are classified as {adposition|adpositions}.'},
+
+'preposition': {a: 'PREP', d: 'A {word class} which expresses spatial or temporal relations ([in], [under], [towards], [before]) or marks various semantic roles ([of], [for]). Prepositions are named so because they come before a {noun phrase} — [((in)) the garage]. Other languages place these words after the noun phrase, and are called {postposition|postpositions}. Together they called {adposition|adpositions}.'},
+
+'pronoun': {a:'PRON', d: 'A {word class} that substitutes for a {noun} or entire {noun phrase}. For example, in the sentence [David bought the red guitar] the noun phrase [the red guitar] can be replaced entirely by [it]: [David bought it]. The most common type of pronouns are {personal pronoun|personal pronouns}: [I], [you], [he], [she], [it], [we], [they], etc. However, other subclasses include {demonstrative pronoun|demonstrative pronouns}, {relative pronoun|relative pronouns} and {interrogative pronoun|interrogative pronouns}, reflexive and reciprocal pronouns, and indefinite pronouns.'},
+
+'proper noun': {a:'', d: 'A type of {noun} denoting persons or places, e.g. [John], [New York]. Contrasts with {common noun}.'},
+
+'tone': {a:'', d: 'The use of pitch in a language to distinguish {lexical} or {grammar|grammatical} meaning. Tonal languages are common in East and Southeast Asia, the Pacific, Africa, and the Americas.'},
+
+'singular': {a:'SG or SING', d: 'A type of {grammatical number|number} which expresses one of something, for example one [dog] vs multiple [dogs]. Singular contrasts with {plural}, and is often {unmarked|marked}.'},
+
+'sound change': {a:'', d: 'The process of a sound in a word being replaced or removed completely. Sound changes may express {grammar|grammatical} information: In English, various verbs used sound changes in their past tense form: [know] > [knew], [teach] > [taught]. Or they can be purely {phonology|phonological}: the pronunciation of the plural [-s] changes to a ((z)) sound in various environments. Compare [cat((s))] with [dog((s))].'},
+
+'syllable': {a: '', d: 'The grouping of sounds in a word, typically around the {vowel|vowels}. For example the word “pronunciation” can be grouped into five syllables: pro-nun-ci-a-tion. The number of syllables in a word can influence the {stress|stress patterns} and prosody of the pronunciation.' +
+
+'<p>Determining the exact syllable boundary may be ambiguous. For example, in the word “hurry”, the division may be hu-rry or hurr-y. The center of a syllable is known as the {nucleus}, which is usually a vowel, but may be a {syllabic consonant}. The nucleus may be preceded by a number of consonants, known as the {onset}, and also followed by a number of consonants, known as the {coda}: in the word “green” the onset is [gr], the nucleus is [ee] and the coda is [n].'},
+
+'syntax': {a:'', d: 'The study of the structure and arrangement of sentences. See also {morphology}.'},
+
+'tense': {a:'', d: 'A {grammatical category} that expresses [when] something happened, in reference to the moment of speaking: for example {past tense|past}, {present tense|present} and {future tense|future}. Tense can manifest as {inflection} on {verbs}: English adds the {suffix} [-ed] to create past tense “walk((ed))”. It can also be expressed using a {particle} or {auxiliary verb}, such as English’s future tense [will] “((will)) walk”.' +
+
+'<p>Some languages have only two distinct tenses, such as past and {nonpast tense|nonpast}, or future and {nonfuture tense|nonfuture}. Some languages more than three distinctions, such as a {remote past} in addition to regular past. There are also tenseless languages, like most of the Chinese languages, which rely entirely on context to communicate when something happened.'},
+
+'transitive verb': {a:'VT', d: 'A verb that must be [done to] something (i.e. it takes a {direct object}). For example, with the verb [love], “I love” is not grammatically complete, however “I love ((something))” is. Transitive verbs contrast with {intransitive verb|intransitive} verbs. Certain verbs are both transitive and intransitive, for example [sing]: “I sang” (intransitive) and “I sang ((a song))” (transitive).'},
+
+'transitivity': {a:'', d: 'A {grammatical category} of {verb|verbs} that extresses to whether the verb is [done to] something or not. For example, the verb [love] needs to be done to something: “I love” is not grammatically complete, however “I love ((something))” is. In contrast, the verb [laugh] is not done to something: “I laughed” is correct however “I laughed ((something))” is not. These are called {transitive verb|transitive} and {intransitive verb|intransitive} verbs, respectively.' +
+
+'<p>As a more formal definition, transivity relates to whether a verb can take {object|objects}, and how many objects can take. {ditransitive verb|Ditransitive} verbs take two objects, for example the verb [give] requires both an object to be given ({direct object}) and a recipient ({indirect object}): “I gave the [dog] a [bone]”.'},
+
+'verb': {a:'V', d: 'A {word class} for “doing” words such as [run], [sing], [know]. In English, verbs express a number of {grammatical category|grammatical categories}, for example: {tense} — [walk] vs [walked], {aspect} — such as the {progressive} [walking], and {person} — [I walk] vs [he walk((s))]. In other languages, verbs may express categories such as {mood}, {voice}, and {evidentiality}.' +
+
+'<p>Verbs are divided into {lexical} verbs and {auxiliary verb|auxiliary verbs}. Lexical verbs may also be classified on whether the verb is required to be “done to” something or not. For example, the verb [love] needs to be done to something: “I love” is not grammatically complete, however “I love ((something))” is. In contrast, the verb [laugh] is not done to something: “I laughed” is correct however “I laughed ((something))” is not. These are called {transitivity|transitive and intransitive} verbs, respectively.'},
+
+'vowel': {a:'', d: 'A speech sound that is articulated without significant closure of the vocal tract. Vowels contrast with {consonant|consonants}, which have a complete or partial closure of the vocal tract. In English, vowels are the sounds represented by the {letter|letters} a, e, i, o and u. However, there are actually around 15 distinct vowel sounds in American English, and around 29 basic vowels sounds in the all the world’s languages. Some vowels may be made up of a combination of two distinct vowels put together, such as in the word “cow” (/aʊ/ in {IPA}). These are known as {diphthong|diphthongs}, whereas single vowels are {monophthong|monophthongs}.'},
+
+'vowel tone': {a:'', d: 'See {tone}.'},
+
+'word class': {a:'', d: 'See {part-of-speech}.'},
+
+'word order': {a:'', d: 'The order of words in a sentence, usually in relation to the rules around the order of {parts-of-speech}. See also {syntax}.'}
+
+}
+
+glossary = Object.entries(glossary);
+
+function curlyToHyperlink(match, p1) {
+  p1 = p1.split('|');
+  if (p1[1]) {
+  	show = p1[1];
+  } else {
+	  show = p1[0];
+  }
+  return '<a class="glossary-link" onclick="link(\''+ p1[0] +'\')">' + show + '</a>';
+}
+
+function markdownToHTML(string) {
+	string = string.replace(/\{(.*?)\}/g, curlyToHyperlink)
+	  .replace(/\[/g, '<i>')
+	  .replace(/\]/g, '</i>')
+	  .replace(/\(\(/g, '<b>')
+	  .replace(/\)\)/g, '</b>');
+	return string;
+}
+
+function filter() {
+
+  var userSearch = document.getElementById('glossary-search').value.replace(/ +/g, ' ').trim();
+	userSearch = userSearch.replace(/\./g, '\.').replace(/ /g, '[ \-]');
+	var seen = [];
+	var multiResults = [];
+	var search = (userSearch == '') ? '.' : userSearch;
+
+	search = new RegExp(userSearch, 'i');
+
+	for (var [key, value] of glossary) {
+		abbreviation = value.a ? '<p>' + value.a + '</p>' : '';
+		entry = '<div class="glossary-entry"><div class="glossary-key"><a class="glossary-head-link" onclick="link(\'' + key + '\')">' + key + '</a></div><div class="glossary-value">' + abbreviation + value.d + '</div></div>';
+		if (!seen.includes(entry) && search.test(key)) {
+			multiResults.push([key, markdownToHTML(entry)]);
+			seen.push(entry);
+		}
+	}
+
+  // look in definitions
+	for (var [key, value] of glossary) {
+		abbreviation = value.a ? '<p>' + value.a + '</p>' : '';
+		entry = '<div class="glossary-entry"><div class="glossary-key"><a class="glossary-head-link" onclick="link(\'' + key + '\')">' + key + '</a></div><div class="glossary-value">' + abbreviation + value.d + '</div></div>';
+		if (!seen.includes(entry) && search.test(value.d)) {
+			multiResults.push([key, markdownToHTML(entry)]);
+			seen.push(entry);
+		}
+	}
+
+	comp = search.toString()
+
+	comp = comp.slice(1, comp.length - 2);
+  console.log(comp)
+	exactComp = new RegExp('^' + comp + '$', 'i');
+  beginComp = new RegExp('^' + comp, 'i');
+	for (var i = 0; i < multiResults.length; i++) {
+		if (comp != '(?:)'  && (exactComp.test(multiResults[i][0]) || beginComp.test(multiResults[i][0]))) {
+			multiResults.unshift(multiResults[i])
+			multiResults.splice(i + 1, 1);
+		}
+	}
+
+	multiResults = multiResults.map(a => a[1]);
+  document.getElementById('results').innerHTML = multiResults.join('\n');
+  if (Object.keys(multiResults).length != Object.keys(glossary).length && document.getElementById('results').clientHeight > window.innerHeight) {
+	  var elmnt = document.getElementById('glossary-search');
+    elmnt.scrollIntoView();
+	}
+}
+
+function link(term) {
+	document.getElementById('glossary-search').value = term;
+	filter();
+}
+
+function clearSearch() {
+	document.getElementById('glossary-search').value = '';
+	filter();
+}
+
+filter();
+
+</script>
+
+</html>
