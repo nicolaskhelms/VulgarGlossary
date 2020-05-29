@@ -1,4 +1,6 @@
 <html>
+<script src="node_modules/smartquotes/dist/smartquotes.js"></script>
+<script>smartquotes()</script>
 <link href="style/global_9.3.3.css" rel="stylesheet">
 
 <style>
@@ -88,6 +90,7 @@ root word vs stem -- i'll do these ones
 */
 
 var glossary = { //a = abbreviation, d = definition
+
 'ablative': {a: 'ABL', d: 'A {case} that {marks|marked} words in a sentence as moving away from something. While English does not have the ablative case, Latin does; take for example the phrase “Ab Roma navigamus”, or “We are sailing from Rome”. Here, “Ab Roma” is in the ablative case. This translates to “From Rome”, and demonstrates that the speaker is in some capacity leaving Rome to physically travel somewhere else. In many languages, this case is {marked} with the use of {prepositions} and unique sentence construction.'},
 
 'absolutive': {a: 'ABS', d: 'The case that {marks} both the {subject} of an {intransitive verb} and the {object} of a {transitive verb}. English does not have an absolutive case, however some languages, like Basque, make use of this case. In Basque, the sentence “Robertek Sam ikusi du” translates to “Robert has seen Sam.” Here, “ikusi du” is a transitive verb--it translates to “has seen”. Since “Sam” is the object of “ikusi du”, “Sam” is in the absolutive case. The sentence “Robert etorri da” translates to “Robert has arrived”. In this situation, “Robert” is in the absolutive case. This is because “etorri da”,  or “arrived”, is intransitive, and “woman” is its subject. In most languages that use the absolutive case, it is not {marked} by any morphemes.'},
@@ -369,9 +372,9 @@ function filter() {
 	comp = search.toString()
 
 	comp = comp.slice(1, comp.length - 2);
-  console.log(comp)
+  	console.log(comp)
 	exactComp = new RegExp('^' + comp + '$', 'i');
-  beginComp = new RegExp('^' + comp, 'i');
+  	beginComp = new RegExp('^' + comp, 'i');
 	for (var i = 0; i < multiResults.length; i++) {
 		if (comp != '(?:)'  && (exactComp.test(multiResults[i][0]) || beginComp.test(multiResults[i][0]))) {
 			multiResults.unshift(multiResults[i])
@@ -380,10 +383,10 @@ function filter() {
 	}
 
 	multiResults = multiResults.map(a => a[1]);
-  document.getElementById('results').innerHTML = multiResults.join('\n');
-  if (Object.keys(multiResults).length != Object.keys(glossary).length && document.getElementById('results').clientHeight > window.innerHeight) {
-	  var elmnt = document.getElementById('glossary-search');
-    elmnt.scrollIntoView();
+  	document.getElementById('results').innerHTML = multiResults.join('\n');
+  	if (Object.keys(multiResults).length != Object.keys(glossary).length && document.getElementById('results').clientHeight > window.innerHeight) {
+		var elmnt = document.getElementById('glossary-search');
+    	elmnt.scrollIntoView();
 	}
 }
 
@@ -400,4 +403,5 @@ function clearSearch() {
 filter();
 
 </script>
+
 </html>
