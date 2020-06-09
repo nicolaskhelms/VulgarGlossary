@@ -59,22 +59,9 @@ TO DO
 progressive aspect
 continuous aspect (and how its differnt to progressive)
 habitual aspect
-active voice
-passive voice
-derived word
-compound word
-vowel harmony
-stress
-foot
-homonym
-homophone
-phonological rule / phonolgical change
-affricate
-diacritic
+syllabic consonant
 zero onset
 rime
-syllabic consonant
-alphabet
 evidentiality
 infix
 cirxumfix
@@ -97,13 +84,11 @@ var glossary = { //a = abbreviation, d = definition
 
 'accusative': {a:'ACC', d: 'A {case} that {marked|marks} the word in the sentence that is being “done to” by the {verb}. In the sentence “The man sees the dog”, “the dog” is in the accusative case. The dog is being seen by the man, and is therefore the {direct object}. Many languages mark the direct object with a {morpheme} that denote the accusative case.'},
 
+'active voice': {a: 'ACT', d: 'The {voice} used when the {subject} of the sentence is performing the action described by the {verb}. The English sentence “The dog bit the woman” in the active voice, as the subject (the dog) is performing the action of “bite”.'},
+
 'adjective': {a:'ADJ', d: 'A {word class} that “describes” a {noun}, such as [happy], [tall], [amazing]. In English, adjectives come before the noun — [the ((happy)) dog] — however in other languages they come after. They may also occur after the noun in a {predicate} position — [the dog is ((happy))]. Some languages {inflection|inflect} adjectives based on grammatical properties of the noun: in Spanish, a plural {suffix} is added to the adjective if the noun is plural, and the adjective is modified to match the {grammatical gender|gender} of the noun.'},
 
 'adposition': {a: '', d: 'An overarching {word class} for {preposition|prepositions} and {postposition|postpositions}. Adpositions express spatial or temporal relations ([in], [under], [towards], [before]) or mark various semantic roles ([of], [for]).'},
-
-'article': {a:'ART', d: 'A word that expresses the {definiteness} of a {noun}. In English, articles include the {definite article} ([the]) and the {indefinite article} ([a]). In other languages, articles may be expressed as {affix|affixes} attached to the word. Some languages do not have articles, and therefore the expression of definiteness is not mandatory (although there may be other ways to optionally express it). Note that in English, definiteness is mandatory: you must say [I saw a cat] or [I saw the cat] and not [I saw cat].' +
-
-'<p>Articles are considered to be a part of the {word class} of {determiner|determiners}, along with {demonstrative|demonstratives}.'},
 
 'adverb': {a:'ADV', d: 'A {word class} that describes [how] a {verb} is performed: [She sang ((loudly))], [He walked ((slowly))]. Adverbs may also modify {adjective|adjectives}: [She is ((extremely)) smart]. In English, most adjectives can be formed into adverbs by adding -ly. However, adverbs are a notoriously mixed class and include many words that are hard to identify. Examples: [We sat ((here))] ([here] describes where the sitting happened) and [I worked ((yesterday))] ([yesterday] describes when the work happened).'},
 
@@ -112,6 +97,14 @@ var glossary = { //a = abbreviation, d = definition
 'affix': {a:'', d: 'A {morpheme} that is attached to a {root} word. Affixes form a new word or new form of a word. An affix added before the root is a {prefix}. In English, the prefix [un-] can be attached to an adjective to express the opposite meaning: [uncommon]. An affix at the end is a {suffix}: [sad] + [-ly] = [sadly]. {circumfix|Circumfixes} are a combination of prefix and suffix. For instance, in Malay the word [adil] “fair” can add the circumfix [((ke))adil((an))] to make “fairness”. {infix|Infixes} add something in the middle of the word: in Khmer, [leun] “fast” can add the infix -b- to form [l((b))eun] “speed”.' +
 
 '<p>All these examples are {derivation|derivational} affixes — they form completely new words. This constrasts with grammatical affixes which create new forms of the same words: eg English’s {plural} suffix changes [dog] to [dogs].'},
+
+'affricate': {a: '', d: 'A consonant that begins as a {stop} and transitions into a {fricative}. Affricates often appear as a combination of two sounds produced quickly together, resulting in a new sound. In English, the sounds represented by [ch] as in “cheese” and [j] as in “judge” are affricates.'},
+
+'alphabet': {a: '', d: 'A group of symbols called {letters} that each represent an individual sound. An alphabet is generally standardized across the language it represents, and used by literate speakers to write the language. Although many languages make use of an alphabet, {abugidas}, {abjads}, and {logographies} are also used.'},
+
+'article': {a:'ART', d: 'A word that expresses the {definiteness} of a {noun}. In English, articles include the {definite article} ([the]) and the {indefinite article} ([a]). In other languages, articles may be expressed as {affix|affixes} attached to the word. Some languages do not have articles, and therefore the expression of definiteness is not mandatory (although there may be other ways to optionally express it). Note that in English, definiteness is mandatory: you must say [I saw a cat] or [I saw the cat] and not [I saw cat].' +
+
+'<p>Articles are considered to be a part of the {word class} of {determiner|determiners}, along with {demonstrative|demonstratives}.'},
 
 'artlang': {a: '', d: 'An artistic language. These {constructed language|constructed languages} are designed to be aesthetically pleasing. In some cases, this means a beautiful script is used; in others, the language is designed to sound eloquent when spoken.'},
 
@@ -141,11 +134,17 @@ var glossary = { //a = abbreviation, d = definition
 
 'constructed language': {a: 'conlang', d: 'A {language} which has been consciously developed, as opposed to having developed {natural language|naturally}. Conlangs typically fall into one of two broad categories. {auxiliary language|Auxiliary languages} are designed to be significantly easier to learn than natural languages, by having simple and regular grammar rules, and usually have aspirations of being adopted as a global language. In contrast, {artistic language|artistic languages} are desgined for artistic purposes, either to be a part of a fictional setting, or simply as a hobby.'},
 
+'compound word': {a: 'CPMD', d: 'A word that is made up of more than one stem. In English, “football” is a compound word made up of two stems: “foot” and “ball”. This differs from words such as “impossible”, which is made up of a stem “possible”, and a non-stem prefix “im”. The process of creating compound words is often called composition.'},
+
 'dative': {a: 'DAT', d: 'A {case} which is used to {marked|mark} the recipient of something in a sentence. In the sentence “Give me bread”, “me” is in the dative case. Since the speaker--the person referred to as [me]--would receive the bread, they act as the {indirect object}. The indirect object is almost always in the dative case. As with other cases, many languages mark this case with {morphemes}.'},
 
 'definite article': {a: 'DEF', d: 'An {article} used to refer to a {noun} that has just been mentioned, or is assumed to be familiar or uniquely identifiable in some way. In English, the definite article is the word [the], contrasting with the {indefinite article} [a]. Compare [I saw the man] (a known, identifiable man) with [I saw a man] (any man).'},
 
 'definiteness': {a: '', d: 'A {grammatical category} expressing whether a {noun} is known or identifiable in a given context. In English, the {indefinite article} is the word [a], contrasting with the {definite article} [the]. Compare [I saw the man] (a known, identifiable man) with [I saw a man] (any man). Some languages may express definiteness with {affix|affixes} rather than stand alone words.'},
+
+'derived word': {a: '', d: 'A word that has been formed by the addition or removal of an {affix}, but maintains the same stem. For example, in English the word “monstrous” can be derived from the word “monster”. In many cases, a derived word is part of a different class than the word it is derived from. In the example seen earlier, this is the case; “monster” is a noun, and “monstrous” is an adjective.'},
+
+'diacritic': {a: '', d: 'A symbol or group of symbols added to a base symbol in a written form of a language. These symbols modify the sound represented by the base symbol in some way. Common examples include accent marks, tildas, cedillas, and many others.'},
 
 'diphthong': {a: '', d: 'A combination of two distinct {vowel|vowels} in the same {syllable}, such as in the word “cow” (/aʊ/ in {IPA}). A languages may or may not have a set of diphthongs as {phoneme|phonemes}. Diphthongs contrast with {monophthong|monophthongs}.'},
 
@@ -169,6 +168,8 @@ var glossary = { //a = abbreviation, d = definition
 
 'exclusive': {a: 'EXCL', d: 'The opposite of {inclusive}, this refers to the use of the first-person plural (“we” in English) to include [I and they, but not you]. In this way, the exclusive specifically does not include the listener. Some languages use alternate word forms to denote the inclusive as opposed to the inclusive.'},
 
+'foot': {a: '', d: 'A unit of rhythmic measure made up of multiple syllables. These feet are helpful to understand when studying the stress marking and {prosody} of a language. There are two types of feet: right-dominant and left-dominant. Any given language uses feet of only one type. For example, English is a left-dominant language. This can be seen in the word “consultation”. This word has two feet: “consult” and “tation”. Both of these feet maintain stress in the leftmost syllable; therefore, English is a left-dominant language.'},
+
 'future': {a: 'FUT', d: 'A {tense} that is used when the action described in the sentence will occur after the speaker says the sentence. For example, this occurs in sentences such as “Clare will walk home”, where the construction “will walk”  shows that the walking will happen sometime after the sentence is spoken.'},
 
 'genitive': {a: 'GEN', d: 'A {case} which is used when one word modifies another word, creating a relationship between them. Generally, the words in this relationship are {nouns}. There are various functions of the genitive case, some of which are: to denote possession ([((Bill’s)) dog]), to denote origin ([women of ((Troy))]), or forms of description in relation to another noun ([Father of ((the bride))]). This case is marked in most languages by specific {morphemes}.'},
@@ -187,7 +188,9 @@ var glossary = { //a = abbreviation, d = definition
 
 'grammatical person': {a: '', d: 'A {grammatical property} that distinguishes between 1st person, 2nd person and 3rd person. In English, as in many languages, person is expressed in {pronoun|pronouns} — [I], [you], [he/she] — and is often fused with {grammatical number|number} — [I] (1st person singular) vs [we] (1st person plural). Other {word class|word classes} may {agreement|agree} with person: in English, present tense verbs agree with 3rd person singular — [I/you/we/they walk] vs [he/she walk((s))].'},
 
-'homophone': {a: '', d: 'Two or more words with the same pronunciation.'},
+'homonym': {a: '', d: 'A pair of words that have the same spelling and the same pronunciation as each other, but a different meaning. For example, English has two senses for the word “left”. This can either be the {past tense} of the verb “to leave”, or the directional opposite of the word “right”.'},
+
+'homophone': {a: '', d: 'A pair of words that sound the same when spoken aloud, regardless of their spelling. In English, this can be seen with the words “sea” and “see”, where the former refers to large bodies of water and the latter is the verb meaning “to look at”.'},
 
 'imperfect': {a: 'IMPERF', d: 'A combination of the {past tense} and imperfective {aspect}. The imperfect denotes an event that occurred in the past but was either done continuously or done many times over a perid. The imperfect is used in the sentence “I was doing my laundry”.'},
 
@@ -251,6 +254,8 @@ var glossary = { //a = abbreviation, d = definition
 
 'particle': {a:'PART or PTCL', d: 'A {word class} of {function word|function words} that express grammatical meaning, and no lexical meaning of their own, such as “not”, and the “infinitve to”  (as in “((to)) be”). Particles differ from other kinds of function words, such as {article|articles}, {preposition|prepositions} and {conjunction|conjunctions}, by being words that do not conveniently fit into other classes, and that cannot be {inflection|inflected}.'},
 
+'passive voice': { a: 'PASS', d: 'The {voice} used when the {subject} of the sentence is performing the action described by the {verb}. The English sentence “The dog bit the woman” in the active voice, as the subject (the dog) is performing the action of “bite”. The {voice} used when the {object} of the sentence is performing the action described by the {verb}. The English sentence “The woman was bitten by the dog” is in the passive voice. This is because the object (the dog) is doing the biting.'},
+
 'past': {a: 'PST', d: 'A {tense} that is used when the action described in the sentence occurred before the current point in time. For example, this occurs in sentences such as “Clare walked home”, where the {morpheme} [-ed] shows that the walking occurred at some point before the speaker said the sentence.'},
 
 'paucal': {a: 'PA', d: 'A {grammatical number} used to express a few of something, as opposed to many or some specific number. In Hualapi, the paucal is denoted by adding the {suffix} [-ch] to the end of the word. Nouns with this ending refer to “a few, but not more than 10” of the item in question. Generally, the paucal is used alongside the {singular} and the {plural} grammatical numbers.'},
@@ -262,6 +267,8 @@ var glossary = { //a = abbreviation, d = definition
 'phonetics': {a: '', d: 'Regards the physical aspect of sounds, or phones, and how they are understood by a listener. Phonetics cares more about what sounds can be produced and understood by humans in general. This differs from {phonology}, where the sound structure of a [language] is studied.'},
 
 'phonology': {a:'', d: 'The study of sounds in language (and signs in sign language).'},
+
+'phonological change': {a: '', d: 'A process within a language where the pronunciation of a certain sound in a certain context is altered. This process is usually quite gradual, and oftentimes is present only in a small population of speakers. However, there are many cases where such changes occur across the entire body of speakers. In English, one such change was that words with a [kn] sound at the initial placement in the word lost the pronunciation of the [k]. Take for example the words “knight” or “knife”, where the initial [k] is completely silent. However, the [k] sound is still used when it occurs initially without the following [n], such as in words like “kick” or “kite”. Languages tend to simplify themselves over time, with difficult to pronounce sound patterns being altered with phonological changes.'},
 
 'plural': {a:'PL', d: 'A type of {grammatical number|number} which expresses more than one of something. For example, the plural form of [dog] is [dogs]. Plural contrasts with {singular}.'},
 
@@ -282,6 +289,8 @@ var glossary = { //a = abbreviation, d = definition
 'singular': {a:'SG or SING', d: 'A type of {grammatical number|number} which expresses one of something, for example one [dog] vs multiple [dogs]. Singular contrasts with {plural}, and is often {unmarked|marked}.'},
 
 'sound change': {a:'', d: 'The process of a sound in a word being replaced or removed completely. Sound changes may express {grammar|grammatical} information: In English, various verbs used sound changes in their past tense form: [know] > [knew], [teach] > [taught]. Or they can be purely {phonology|phonological}: the pronunciation of the plural [-s] changes to a ((z)) sound in various environments. Compare [cat((s))] with [dog((s))].'},
+
+'stress': {a: '', d: 'A marking of emphasis or importance that can be used either on a word in a sentence or a syllable in a word. Usually, this marking is denoted by increased loudness on the word or syllable, by lengthening the word or syllable, or by changing the pitch. Oftentimes, speakers of a language can interpret more than one meaning from a sentence based purely on where the stress is placed. In English, for example, take the sentence “I wanted to walk home yesterday.” If stress is placed on the first word, “I”, most listeners would interpret the speaker to be differentiating themselves from some other party that did not wish to walk home. If the stress is placed on “yesterday”, however, the speaker would be understood to be pointing out that their wants were not met, emphasizing a sense of urgency.'},
 
 'subject': {a:'SUB', d: 'The person or thing that the sentence is made about. In the sentence “Mary ran home”, “Mary” is the subject--she is the one [doing] the {verb}, which is “run”. The subject is almost always in the {nominative} {case}.'},
 
@@ -310,6 +319,8 @@ var glossary = { //a = abbreviation, d = definition
 'voice': {a: '', d: 'A {grammatical property} of a {verb} that expresses the relationship between the verb and the participants of the action the verb describes. There are many types of voice, the most common being [active] and [passive].'},
 
 'vowel': {a:'', d: 'A speech sound that is articulated without significant closure of the vocal tract. Vowels contrast with {consonant|consonants}, which have a complete or partial closure of the vocal tract. In English, vowels are the sounds represented by the {letter|letters} a, e, i, o and u. However, there are actually around 15 distinct vowel sounds in American English, and around 29 basic vowels sounds in the all the world’s languages. Some vowels may be made up of a combination of two distinct vowels put together, such as in the word “cow” (/aʊ/ in {IPA}). These are known as {diphthong|diphthongs}, whereas single vowels are {monophthong|monophthongs}.'},
+
+'vowel harmony': {a: '', d: 'A feature of some languages that ensures that all {vowels} in a given word are of the same class. These classes and which vowels belong in them are determined by the language, and can vary from language to language. One common example is front and back vowel harmony, which is found in Turkish. In this type of vowel harmony, all vowels in a word must be formed in either the front of the mouth or the back of the mouth, but not both.'},
 
 'vowel tone': {a:'', d: 'See {tone}.'},
 
