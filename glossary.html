@@ -41,11 +41,11 @@
 <h1>Glossary of linguistic terms</h1>
 
 <p>Search: <input
-            autocorrect="off"
-            autocapitalize="off"
-            id="glossary-search"
-            onkeyup="filter()"
-            type="text"></input> <a class='glossary-link' onclick="clearSearch()">clear</a></p>
+      autocorrect="off"
+      autocapitalize="off"
+      id="glossary-search"
+      onkeyup="filter()"
+      type="text"></input> <a class='glossary-link' onclick="clearSearch()">clear</a></p>
 
 <div id="results">
 
@@ -55,24 +55,6 @@
 
 /*
 TO DO
-
-progressive aspect
-continuous aspect (and how its differnt to progressive)
-habitual aspect
-syllabic consonant
-zero onset
-rime
-evidentiality
-infix
-cirxumfix
-disfix
-null morpheme
-{demonstrative pronoun|demonstrative pronouns},
-{relative pronoun|relative pronouns} and
-{interrogative pronoun|interrogative pronouns}
-noun phrase -- not sure if this is the most accurate definition?
-
-
 root word vs stem -- i'll do these ones
 */
 
@@ -80,7 +62,7 @@ var glossary = { //a = abbreviation, d = definition
 
 'ablative': {a: 'ABL', d: 'A {case} that {marks|marked} words in a sentence as moving away from something. While English does not have the ablative case, Latin does; take for example the phrase “Ab Roma navigamus”, or “We are sailing from Rome”. Here, “Ab Roma” is in the ablative case. This translates to “From Rome”, and demonstrates that the speaker is in some capacity leaving Rome to physically travel somewhere else. In many languages, this case is {marked} with the use of {prepositions} and unique sentence construction.'},
 
-'absolutive': {a: 'ABS', d: 'The case that {marks} both the {subject} of an {intransitive verb} and the {object} of a {transitive verb}. English does not have an absolutive case, however some languages, like Basque, make use of this case. In Basque, the sentence “Robertek Sam ikusi du” translates to “Robert has seen Sam.” Here, “ikusi du” is a transitive verb--it translates to “has seen”. Since “Sam” is the object of “ikusi du”, “Sam” is in the absolutive case. The sentence “Robert etorri da” translates to “Robert has arrived”. In this situation, “Robert” is in the absolutive case. This is because “etorri da”,  or “arrived”, is intransitive, and “woman” is its subject. In most languages that use the absolutive case, it is not {marked} by any morphemes.'},
+'absolutive': {a: 'ABS', d: 'The case that {marks} both the {subject} of an {intransitive verb} and the {object} of a {transitive verb}. English does not have an absolutive case, however some languages, like Basque, make use of this case. In Basque, the sentence “Robertek Sam ikusi du” translates to “Robert has seen Sam.” Here, “ikusi du” is a transitive verb--it translates to “has seen”. Since “Sam” is the object of “ikusi du”, “Sam” is in the absolutive case. The sentence “Robert etorri da” translates to “Robert has arrived”. In this situation, “Robert” is in the absolutive case. This is because “etorri da”, or “arrived”, is intransitive, and “woman” is its subject. In most languages that use the absolutive case, it is not {marked} by any morphemes.'},
 
 'accusative': {a:'ACC', d: 'A {case} that {marked|marks} the word in the sentence that is being “done to” by the {verb}. In the sentence “The man sees the dog”, “the dog” is in the accusative case. The dog is being seen by the man, and is therefore the {direct object}. Many languages mark the direct object with a {morpheme} that denote the accusative case.'},
 
@@ -122,6 +104,8 @@ var glossary = { //a = abbreviation, d = definition
 
 '<p>Other kinds of cases include {dative}, {genitive}, {locative}, {ablative}, {ergative}, {absolutive} and {instrumental}.'},
 
+'circumfix': {a: '', d: 'An {affix} that is attached before and after a {stem} as opposed to solely before ({prefix}), after ({suffix}), or inside the stem ({infix}). In Dutch, a circumfix is used to turn a noun into a collection of said noun; for example, “berg” (mountain) becomes [ge]-berg-[te] (mountain range), surrounded by [ge] and [te].'},
+
 'coda': {a: '', d: 'The {consonant|consonants} in a {syllable} that follow the {nucleus} (which is usually the {vowel} of the syllable). The nucleus and coda make up the {rime}.'},
 
 'colexification': {a:'', d: 'The coexistence of many possible related meanings for a word or phrase. Types of colexification include {polysemy} and {homophony}.'},
@@ -134,6 +118,8 @@ var glossary = { //a = abbreviation, d = definition
 
 'constructed language': {a: 'conlang', d: 'A {language} which has been consciously developed, as opposed to having developed {natural language|naturally}. Conlangs typically fall into one of two broad categories. {auxiliary language|Auxiliary languages} are designed to be significantly easier to learn than natural languages, by having simple and regular grammar rules, and usually have aspirations of being adopted as a global language. In contrast, {artistic language|artistic languages} are desgined for artistic purposes, either to be a part of a fictional setting, or simply as a hobby.'},
 
+'continuous aspect': {a: 'CONT', d: 'An {aspect} denoting that the action in question is not completed and is ongoing. In English, this is usually shown by the suffix [-ing]. The sentence “She is wearing a hat” is ongoing, and is in the progressive aspect. In many languages, the progressive aspect is used interchangeably with the {progressive aspect}. However, some languages distinguish them. In these languages, the continuous aspect is used to describe an ongoing state of being, rather than an ongoing action.'},
+
 'compound word': {a: 'CPMD', d: 'A word that is made up of more than one stem. In English, “football” is a compound word made up of two stems: “foot” and “ball”. This differs from words such as “impossible”, which is made up of a stem “possible”, and a non-stem prefix “im”. The process of creating compound words is often called composition.'},
 
 'dative': {a: 'DAT', d: 'A {case} which is used to {marked|mark} the recipient of something in a sentence. In the sentence “Give me bread”, “me” is in the dative case. Since the speaker--the person referred to as [me]--would receive the bread, they act as the {indirect object}. The indirect object is almost always in the dative case. As with other cases, many languages mark this case with {morphemes}.'},
@@ -144,11 +130,15 @@ var glossary = { //a = abbreviation, d = definition
 
 'derived word': {a: '', d: 'A word that has been formed by the addition or removal of an {affix}, but maintains the same stem. For example, in English the word “monstrous” can be derived from the word “monster”. In many cases, a derived word is part of a different class than the word it is derived from. In the example seen earlier, this is the case; “monster” is a noun, and “monstrous” is an adjective.'},
 
+'demonstrative pronoun': {a: 'DEM', d: 'A set of {pronouns} used to more accurately describe the item they describe, called the referent. In English the demonstrative pronouns are “this”, “that”, “these”, and “those”. Demonstrative pronouns also make use of the location of the referent in relation to the speaker and listener. For example, “this” demonstrates that the item in question is close to the speaker, while “that” implies that the referent is close to the listener.'},
+
 'diacritic': {a: '', d: 'A symbol or group of symbols added to a base symbol in a written form of a language. These symbols modify the sound represented by the base symbol in some way. Common examples include accent marks, tildas, cedillas, and many others.'},
 
 'diphthong': {a: '', d: 'A combination of two distinct {vowel|vowels} in the same {syllable}, such as in the word “cow” (/aʊ/ in {IPA}). A languages may or may not have a set of diphthongs as {phoneme|phonemes}. Diphthongs contrast with {monophthong|monophthongs}.'},
 
 'direct object': {a: 'DO', d: 'The recipient of a {transitive verb}. In the sentence “Jill wants a hamburger from the restaurant”, “a hamburger” is the direct object--it’s the object that is [wanted]. The direct object is almost always marked by the {accusative} {case}.'},
+
+'disfix': {a: '', d: 'An affix that occurs as a removal from the stem of the word, as opposed to the addition of a new {morpheme}. Although very rare, disfixes are sometimes used to describe some adjectives in French. Here, the {masculine} is sometimes considered to be the realization of the {feminine} form alongside a disfix. For example, the adjective “blanche” is the feminine form for “white”. The masculine form is “blanc”, which could be described as “blanche” plus the disfix “-he”, removing the ending.'},
 
 'dual': {a: 'DU', d: 'A {grammatical number} used to express specifically two of something. For example, in Slovene, verbs change their ending to agree with the number of participants in the action. The verb [delati] (to do) in the {first person} {singular} is [delam]. In the first person dual, it is [delava]. Finally, in the first person {plural}, it is [delamo]. Generally, the dual is used alongside the singular and the plural grammatical numbers.'},
 
@@ -166,11 +156,13 @@ var glossary = { //a = abbreviation, d = definition
 
 'ergative': {a: 'ERG', d: 'The case that {marks|marked} the {subject} of a {transitive verb}. English does not have an ergative case, however some languages, like Basque, make use of this case. In Basque, the sentence “Robertek Sam ikusi du” translates to “Robert has seen Sam.” Here, “Robert” is the subject, and “ikusi du” translates to “has seen”, and is a transitive verb. Therefore, “Robert” is in the ergative case. Some languages mark this case with the use of special words or {morphemes}. In Basque, this is done by adding the ending [-ek] in some situations. However, in an {intransitive verb|intransitive} sentence, the subject is unmarked.'},
 
+'evidentiality': {a: '', d: 'The marking of the amount of evidence or information surrounding a statement. In English, evidentiality is commonly denoted by the addition of phrases such as “It seems to me”, “I believe that”, “supposedly”, or other such additions. Common categories of evidentiality demonstrate where the speaker learned the information: whether they were a firsthand witness, heard it from a trusted source, or heard it from a source that is questionable.'},
+
 'exclusive': {a: 'EXCL', d: 'The opposite of {inclusive}, this refers to the use of the first-person plural (“we” in English) to include [I and they, but not you]. In this way, the exclusive specifically does not include the listener. Some languages use alternate word forms to denote the inclusive as opposed to the inclusive.'},
 
 'foot': {a: '', d: 'A unit of rhythmic measure made up of multiple syllables. These feet are helpful to understand when studying the stress marking and {prosody} of a language. There are two types of feet: right-dominant and left-dominant. Any given language uses feet of only one type. For example, English is a left-dominant language. This can be seen in the word “consultation”. This word has two feet: “consult” and “tation”. Both of these feet maintain stress in the leftmost syllable; therefore, English is a left-dominant language.'},
 
-'future': {a: 'FUT', d: 'A {tense} that is used when the action described in the sentence will occur after the speaker says the sentence. For example, this occurs in sentences such as “Clare will walk home”, where the construction “will walk”  shows that the walking will happen sometime after the sentence is spoken.'},
+'future': {a: 'FUT', d: 'A {tense} that is used when the action described in the sentence will occur after the speaker says the sentence. For example, this occurs in sentences such as “Clare will walk home”, where the construction “will walk” shows that the walking will happen sometime after the sentence is spoken.'},
 
 'genitive': {a: 'GEN', d: 'A {case} which is used when one word modifies another word, creating a relationship between them. Generally, the words in this relationship are {nouns}. There are various functions of the genitive case, some of which are: to denote possession ([((Bill’s)) dog]), to denote origin ([women of ((Troy))]), or forms of description in relation to another noun ([Father of ((the bride))]). This case is marked in most languages by specific {morphemes}.'},
 
@@ -188,6 +180,8 @@ var glossary = { //a = abbreviation, d = definition
 
 'grammatical person': {a: '', d: 'A {grammatical property} that distinguishes between 1st person, 2nd person and 3rd person. In English, as in many languages, person is expressed in {pronoun|pronouns} — [I], [you], [he/she] — and is often fused with {grammatical number|number} — [I] (1st person singular) vs [we] (1st person plural). Other {word class|word classes} may {agreement|agree} with person: in English, present tense verbs agree with 3rd person singular — [I/you/we/they walk] vs [he/she walk((s))].'},
 
+'habitual aspect': {a: 'HAB', d: 'An {aspect} denoting that the action in question is something done by habit or custom. This can be demonstrated by the English sentence “Mary used to swim.” In this sentence, the understanding is that “Mary” was at one point a regular swimmer, but for some reason quit. In other words, she had the habit of swimming--therefore, the habitual aspect is used.'},
+
 'homonym': {a: '', d: 'A pair of words that have the same spelling and the same pronunciation as each other, but a different meaning. For example, English has two senses for the word “left”. This can either be the {past tense} of the verb “to leave”, or the directional opposite of the word “right”.'},
 
 'homophone': {a: '', d: 'A pair of words that sound the same when spoken aloud, regardless of their spelling. In English, this can be seen with the words “sea” and “see”, where the former refers to large bodies of water and the latter is the verb meaning “to look at”.'},
@@ -202,9 +196,13 @@ var glossary = { //a = abbreviation, d = definition
 
 'indirect object': {a: 'IO', d: 'The person or thing that receives the {direct object}. For example, in the sentence “Samantha built Thomas a rocking chair”, “Thomas” is the indirect object. Thomas receives the rocking chair, which is the direct object. Samantha is not building Thomas, but Thomas is receiving the item that is being built. An indirect object is almost always in the {dative} {case}.'},
 
+'infix': {a: '', d: 'An {affix} that is attached into a {stem} as opposed to before ({prefix}), after ({suffix}), or around the stem in two parts ({circumfix}). For example, in many cases of Nicaraguan Spanish, a suffix used for the {diminutive}, [-it], becomes an infix, such as in “Osqu[it]ar”, or “little Oscar.”'},
+
 'inflection': {a: '', d: 'The modification of a word to express different {grammatical category|grammatical categories}. A word may be inflected by adding an {affix}, or by changing a sound in a word, or both. English creates plural nouns by adding the affix -s: [dog] > [dogs]. Various verbs use sound changes in their past tense form: [know] > [knew], [teach] > [taught].'},
 
 'instrumental': {a: 'INS', d: 'A case that {marked|marks} nouns which are the [instrument] used by the {subject} to complete the {verb}. In English, the instrumental case is marked by adverb phrases: [with], [using], or [by]. For example, in the sentence “The boy wrote the note with a pencil”, “with a pencil” is in the instrumental case.'},	
+
+'interrogative pronoun': {a: 'INT', d: 'A type of pronoun that is used in questions sentences. Questions generally use interrogative pronouns to take the place of the item that is being asked about; in other words, the question’s answer itself typically the person who is referred to by the pronoun. A question such as “Who is coming to the store with me?” uses the interrogative pronoun “who”. If the answer is “Ben, Alex, and Martin”, then “who” refers to those three people.'},
 
 'interjection': {a: 'INTERJ', d: 'A {word class} denoting words that express a spontaneous feeling or reaction, including exclamations and curses ([ouch!], [wow!], [damn!]), greetings ([hello], [goodbye]) and response particles ([okay], [oh!], [m-hm], [huh?]). Interjections are their own utterances, and, unlike other {part-of-speech|parts-of-speech}, do not occur in a larger sentence. Additionally, they may be longer than a single word: [For heaven’s sake!]'},
 
@@ -240,9 +238,11 @@ var glossary = { //a = abbreviation, d = definition
 
 'noun': {a:'N', d: 'A {word class} that denotes a person, place or thing. Nouns can be subdivided into {common noun|common nouns}, which are physical things such as [dog] and [table], as well as abstract things such as [criticism] and [tolerance], or {proper noun|proper nouns}, which are persons or places, e.g. [John], [New York]. In English, common nouns usually require an {article} ([a], [the]) and use morphology for plurality.'},
 
-'noun phrase': {a: '', d: 'A group of words that together can act as a single {noun}. For example, in the sentence “Almost every person loves chocolate”, “Almost every person” acts as a noun phrase. A noun phrase will always contain an actual noun (in this case, “person”).'},
+'noun phrase': {a: '', d: 'A group of words that has at its {head} a noun. This phrase can act as a single {noun}. For example, in the sentence “Almost every person loves chocolate”, “Almost every person” acts as a noun phrase. A noun phrase will always contain an actual noun (in this case, “person”).'},
 
 'nucleus': {a: '', d: 'The peak of a {syllable}, which is usually the {vowel} in the middle of a syllable. A minimal syllable consists only of a nucleus, as in the English words “eye” or “owe”. Although usually a vowel, it is sometimes is a {syllabic consonant}, such as in the word “syllable” sy-lla-((ble)) (here we are concerned with the pronunciation, not the spelling, so the final syllable is a [bl] sound, with [l] being the nucleus).'},
+
+'null morpheme': {a: '', d: 'A morpheme that makes no appearance in the produced form of a word, but is useful for analysis and grammatical understanding. Null morphemes are usually used to help explain language generation rules and procedures that the brain undergoes. For example, it can be useful to understand the plural of “moose” in English to be “moose” plus some null morpheme that represents the plural.'},
 
 'object': {a: 'OBJ', d: 'The person or thing that a {verb} is done to, or [done for]. For example, in the sentence “Simon bought a new bike”, “bike” is the object. Here, “bike” is what the verb “to buy” is being done on. There are two main types of objects: the {direct object} and the {indirect object}.'},
 
@@ -252,7 +252,7 @@ var glossary = { //a = abbreviation, d = definition
 
 'part-of-speech': {a:'POS', d: 'Also known as a ((word class)). A category of words that have similar grammatical properties. Examples of parts-of-speech are {noun}, {verb}, {adjective}, {adverb}, preposition, conjunction, interjection, numeral, article, and determiner. Different languages may have a different set on parts-of-speech. For instance, Latin does not have articles; Finnish does not have prepositions.'},
 
-'particle': {a:'PART or PTCL', d: 'A {word class} of {function word|function words} that express grammatical meaning, and no lexical meaning of their own, such as “not”, and the “infinitve to”  (as in “((to)) be”). Particles differ from other kinds of function words, such as {article|articles}, {preposition|prepositions} and {conjunction|conjunctions}, by being words that do not conveniently fit into other classes, and that cannot be {inflection|inflected}.'},
+'particle': {a:'PART or PTCL', d: 'A {word class} of {function word|function words} that express grammatical meaning, and no lexical meaning of their own, such as “not”, and the “infinitve to” (as in “((to)) be”). Particles differ from other kinds of function words, such as {article|articles}, {preposition|prepositions} and {conjunction|conjunctions}, by being words that do not conveniently fit into other classes, and that cannot be {inflection|inflected}.'},
 
 'passive voice': { a: 'PASS', d: 'The {voice} used when the {subject} of the sentence is performing the action described by the {verb}. The English sentence “The dog bit the woman” in the active voice, as the subject (the dog) is performing the action of “bite”. The {voice} used when the {object} of the sentence is performing the action described by the {verb}. The English sentence “The woman was bitten by the dog” is in the passive voice. This is because the object (the dog) is doing the biting.'},
 
@@ -280,11 +280,17 @@ var glossary = { //a = abbreviation, d = definition
 
 'present': {a: 'PRS', d: 'A {tense} that is used when the action described in the sentence occurs at the same time as the speaker says the sentence. For example, this occurs in sentences such as “Clare walks home”, where the {morpheme} [-s] shows that the walking occurred concurrently to the speaking of the sentence.'},
 
+'progressive aspect': {a: 'PROG', d: 'An {aspect} denoting that the action in question is not completed and is ongoing. In English, this is usually shown by the suffix [-ing]. The sentence “She is running” is ongoing, and is in the progressive aspect. In many languages, the progressive aspect is used interchangeably with the {continuous aspect}. However, some languages distinguish them. In these languages, the progressive aspect is used to describe an ongoing action, rather than a condition or state.'},
+
 'pronoun': {a:'PRON', d: 'A {word class} that substitutes for a {noun} or entire {noun phrase}. For example, in the sentence [David bought the red guitar] the noun phrase [the red guitar] can be replaced entirely by [it]: [David bought it]. The most common type of pronouns are {personal pronoun|personal pronouns}: [I], [you], [he], [she], [it], [we], [they], etc. However, other subclasses include {demonstrative pronoun|demonstrative pronouns}, {relative pronoun|relative pronouns} and {interrogative pronoun|interrogative pronouns}, reflexive and reciprocal pronouns, and indefinite pronouns.'},
 
 'proper noun': {a:'', d: 'A type of {noun} denoting persons or places, e.g. [John], [New York]. Contrasts with {common noun}.'},
 
 'tone': {a:'', d: 'The use of pitch in a language to distinguish {lexical} or {grammar|grammatical} meaning. Tonal languages are common in East and Southeast Asia, the Pacific, Africa, and the Americas.'},
+
+'relative pronoun': {a: 'REL', d: 'A type of pronoun that is used to conjoin a {clause} that modifies the item the pronoun refers to (called the referent) with another clause in the sentence. This can be seen in a sentence such as “Martha ran to the beach that she loved to visit”, the clause “she liked to visit” describes the “beach” which is referred to by “that”. Here, “that” is a relative pronoun, as it conjoins the main clause “Martha ran to the beach” with the modifying clause “she loved to visit”.'},
+
+'rime': {a: '', d: 'The part of the word including and following the {vowel} of a {syllable}. This directly follows the {onset}. For example, the word “sit” can be broken into the onset [s-] and the rime [-it].'},
 
 'singular': {a:'SG or SING', d: 'A type of {grammatical number|number} which expresses one of something, for example one [dog] vs multiple [dogs]. Singular contrasts with {plural}, and is often {unmarked|marked}.'},
 
@@ -297,6 +303,8 @@ var glossary = { //a = abbreviation, d = definition
 'syllable': {a: '', d: 'The grouping of sounds in a word, typically around the {vowel|vowels}. For example the word “pronunciation” can be grouped into five syllables: pro-nun-ci-a-tion. The number of syllables in a word can influence the {stress|stress patterns} and prosody of the pronunciation.' +
 
 '<p>Determining the exact syllable boundary may be ambiguous. For example, in the word “hurry”, the division may be hu-rry or hurr-y. The center of a syllable is known as the {nucleus}, which is usually a vowel, but may be a {syllabic consonant}. The nucleus may be preceded by a number of consonants, known as the {onset}, and also followed by a number of consonants, known as the {coda}: in the word “green” the onset is [gr], the nucleus is [ee] and the coda is [n].'},
+
+'syllabic consonant': {a: '', d: 'A consonant that either forms an entire {syllable} without the addition of {vowels}, or acts as the {nucleus} of a syllable. For example, the final [l] in the word “little” is a syllabic consonant; it acts as the final syllable in the word, and is a single sound. The [r] in “work” acts as the nucleus of the word, and is another example of a syllabic consonant.'},
 
 'syntax': {a:'', d: 'The study of the structure and arrangement of sentences. See also {morphology}.'},
 
@@ -326,34 +334,35 @@ var glossary = { //a = abbreviation, d = definition
 
 'word class': {a:'', d: 'See {part-of-speech}.'},
 
-'word order': {a:'', d: 'The order of words in a sentence, usually in relation to the rules around the order of {parts-of-speech}. See also {syntax}.'}
+'word order': {a:'', d: 'The order of words in a sentence, usually in relation to the rules around the order of {parts-of-speech}. See also {syntax}.'},
 
+'zero onset': {a: '', d: 'The lack of any {onset}, which is to say the lack of any initial {consonant}. Zero onset occurs when the first sound of a {syllable} is a {vowel} sound. Examples in English are words such as “ate”, “it”, or other words with syllables that begin with vowel sounds.'}
 }
 
 glossary = Object.entries(glossary);
 
 function curlyToHyperlink(match, p1) {
-  p1 = p1.split('|');
-  if (p1[1]) {
-  	show = p1[1];
-  } else {
-	  show = p1[0];
-  }
-  return '<a class="glossary-link" onclick="link(\''+ p1[0] +'\')">' + show + '</a>';
+ p1 = p1.split('|');
+ if (p1[1]) {
+ 	show = p1[1];
+ } else {
+	 show = p1[0];
+ }
+ return '<a class="glossary-link" onclick="link(\''+ p1[0] +'\')">' + show + '</a>';
 }
 
 function markdownToHTML(string) {
 	string = string.replace(/\{(.*?)\}/g, curlyToHyperlink)
-	  .replace(/\[/g, '<i>')
-	  .replace(/\]/g, '</i>')
-	  .replace(/\(\(/g, '<b>')
-	  .replace(/\)\)/g, '</b>');
+	 .replace(/\[/g, '<i>')
+	 .replace(/\]/g, '</i>')
+	 .replace(/\(\(/g, '<b>')
+	 .replace(/\)\)/g, '</b>');
 	return string;
 }
 
 function filter() {
 
-  var userSearch = document.getElementById('glossary-search').value.replace(/ +/g, ' ').trim();
+ var userSearch = document.getElementById('glossary-search').value.replace(/ +/g, ' ').trim();
 	userSearch = userSearch.replace(/\./g, '\.').replace(/ /g, '[ \-]');
 	var seen = [];
 	var multiResults = [];
@@ -370,7 +379,7 @@ function filter() {
 		}
 	}
 
-  // look in definitions
+ // look in definitions
 	for (var [key, value] of glossary) {
 		abbreviation = value.a ? '<p>' + value.a + '</p>' : '';
 		entry = '<div class="glossary-entry"><div class="glossary-key"><a class="glossary-head-link" onclick="link(\'' + key + '\')">' + key + '</a></div><div class="glossary-value">' + abbreviation + value.d + '</div></div>';
@@ -383,21 +392,21 @@ function filter() {
 	comp = search.toString()
 
 	comp = comp.slice(1, comp.length - 2);
-  	console.log(comp)
+ 	console.log(comp)
 	exactComp = new RegExp('^' + comp + '$', 'i');
-  	beginComp = new RegExp('^' + comp, 'i');
+ 	beginComp = new RegExp('^' + comp, 'i');
 	for (var i = 0; i < multiResults.length; i++) {
-		if (comp != '(?:)'  && (exactComp.test(multiResults[i][0]) || beginComp.test(multiResults[i][0]))) {
+		if (comp != '(?:)' && (exactComp.test(multiResults[i][0]) || beginComp.test(multiResults[i][0]))) {
 			multiResults.unshift(multiResults[i])
 			multiResults.splice(i + 1, 1);
 		}
 	}
 
 	multiResults = multiResults.map(a => a[1]);
-  	document.getElementById('results').innerHTML = multiResults.join('\n');
-  	if (Object.keys(multiResults).length != Object.keys(glossary).length && document.getElementById('results').clientHeight > window.innerHeight) {
+ 	document.getElementById('results').innerHTML = multiResults.join('\n');
+ 	if (Object.keys(multiResults).length != Object.keys(glossary).length && document.getElementById('results').clientHeight > window.innerHeight) {
 		var elmnt = document.getElementById('glossary-search');
-    	elmnt.scrollIntoView();
+  	elmnt.scrollIntoView();
 	}
 }
 
