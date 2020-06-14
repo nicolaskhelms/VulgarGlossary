@@ -6,51 +6,49 @@
 <style>
 
 .glossary-entry {
-	margin: 10px 0px 10px 0px;
-	border: solid 1px #ddd;
-	border-radius: 2px;
-	padding: 5px 20px 10px 20px;
-	background: #fff;
+  margin: 10px 0px 10px 0px;
+  border: solid 1px #ddd;
+  border-radius: 2px;
+  padding: 5px 20px 10px 20px;
+  background: #fff;
 }
 
 .glossary-entry:hover {
-	box-shadow: 1px 1px 4px rgba(0, 0, 0, .3);
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, .3);
 }
 
 .glossary-key {
-	font-size: 150%;
+  font-size: 150%;
 }
 .glossary-value {
-	margin-top: 15px;
+  margin-top: 15px;
 }
 
 .glossary-link {
-	font-weight: bold;
-	cursor: hand;
-	color: #0092c2;
+  font-weight: bold;
+  cursor: hand;
+  color: #0092c2;
 }
 
 .glossary-head-link {
-	font-weight: bold;
-	cursor: hand;
-	color: #505050;
+  font-weight: bold;
+  cursor: hand;
+  color: #505050;
 }
 
 </style>
+<div class="inner-body">
+  <h1>Glossary of linguistic terms</h1>
 
-<h1>Glossary of linguistic terms</h1>
+  <p>Search: <input
+        autocorrect="off"
+        autocapitalize="off"
+        id="glossary-search"
+        onkeyup="filter()"
+        type="text"></input> <a class='glossary-link' onclick="clearSearch()">clear</a></p>
 
-<p>Search: <input
-      autocorrect="off"
-      autocapitalize="off"
-      id="glossary-search"
-      onkeyup="filter()"
-      type="text"></input> <a class='glossary-link' onclick="clearSearch()">clear</a></p>
-
-<div id="results">
-
-<div>
-
+  <div id="results"></div>
+</div>
 <script>
 
 /*
@@ -68,7 +66,7 @@ var glossary = { //a = abbreviation, d = definition
 
 'active voice': {a: 'ACT', d: 'The {voice} used when the {subject} of the sentence is performing the action described by the {verb}. The English sentence “The dog bit the woman” in the active voice, as the subject (the dog) is performing the action of “bite”.'},
 
-'adjective': {a:'ADJ', d: 'A {word class} that “describes” a {noun}, such as [happy], [tall], [amazing]. In English, adjectives come before the noun — [the ((happy)) dog] — however in other languages they come after. They may also occur after the noun in a {predicate} position — [the dog is ((happy))]. Some languages {inflection|inflect} adjectives based on grammatical properties of the noun: in Spanish, a plural {suffix} is added to the adjective if the noun is plural, and the adjective is modified to match the {grammatical gender|gender} of the noun.'},
+'adjective': {a:'ADJ', d: 'A {word class} that “describes” a {noun}, such as [happy], [tall], [amazing]. In English, adjectives come before the noun -- [the ((happy)) dog] -- however in other languages they come after. They may also occur after the noun in a {predicate} position -- [the dog is ((happy))]. Some languages {inflection|inflect} adjectives based on grammatical properties of the noun: in Spanish, a plural {suffix} is added to the adjective if the noun is plural, and the adjective is modified to match the {grammatical gender|gender} of the noun.'},
 
 'adposition': {a: '', d: 'An overarching {word class} for {preposition|prepositions} and {postposition|postpositions}. Adpositions express spatial or temporal relations ([in], [under], [towards], [before]) or mark various semantic roles ([of], [for]).'},
 
@@ -78,7 +76,7 @@ var glossary = { //a = abbreviation, d = definition
 
 'affix': {a:'', d: 'A {morpheme} that is attached to a {root} word. Affixes form a new word or new form of a word. An affix added before the root is a {prefix}. In English, the prefix [un-] can be attached to an adjective to express the opposite meaning: [uncommon]. An affix at the end is a {suffix}: [sad] + [-ly] = [sadly]. {circumfix|Circumfixes} are a combination of prefix and suffix. For instance, in Malay the word [adil] “fair” can add the circumfix [((ke))adil((an))] to make “fairness”. {infix|Infixes} add something in the middle of the word: in Khmer, [leun] “fast” can add the infix -b- to form [l((b))eun] “speed”.' +
 
-'<p>All these examples are {derivation|derivational} affixes — they form completely new words. This constrasts with grammatical affixes which create new forms of the same words: eg English’s {plural} suffix changes [dog] to [dogs].'},
+'<p>All these examples are {derivation|derivational} affixes -- they form completely new words. This constrasts with grammatical affixes which create new forms of the same words: eg English’s {plural} suffix changes [dog] to [dogs].'},
 
 'affricate': {a: '', d: 'A consonant that begins as a {stop} and transitions into a {fricative}. Affricates often appear as a combination of two sounds produced quickly together, resulting in a new sound. In English, the sounds represented by [ch] as in “cheese” and [j] as in “judge” are affricates.'},
 
@@ -178,7 +176,7 @@ var glossary = { //a = abbreviation, d = definition
 
 'grammatical number': {a: '', d: 'A {grammatical property} that expresses quantity, such as {singular} vs {plural}. In English, number is expressed in {noun|nouns} via the presence of absence of a plural suffix: [dog] vs [dogs]. Some other languages have a {dual} number (for exactly two of something) or a {paucal} number, for “a few” of something (as opposed to many). Some languages, espeically Asian lanuages, do not express distinctions such as singular and plural at all. In such languages, it is usually obvious from context whether the speaker it talking about one or many of something.'},
 
-'grammatical person': {a: '', d: 'A {grammatical property} that distinguishes between 1st person, 2nd person and 3rd person. In English, as in many languages, person is expressed in {pronoun|pronouns} — [I], [you], [he/she] — and is often fused with {grammatical number|number} — [I] (1st person singular) vs [we] (1st person plural). Other {word class|word classes} may {agreement|agree} with person: in English, present tense verbs agree with 3rd person singular — [I/you/we/they walk] vs [he/she walk((s))].'},
+'grammatical person': {a: '', d: 'A {grammatical property} that distinguishes between 1st person, 2nd person and 3rd person. In English, as in many languages, person is expressed in {pronoun|pronouns} -- [I], [you], [he/she] -- and is often fused with {grammatical number|number} -- [I] (1st person singular) vs [we] (1st person plural). Other {word class|word classes} may {agreement|agree} with person: in English, present tense verbs agree with 3rd person singular -- [I/you/we/they walk] vs [he/she walk((s))].'},
 
 'habitual aspect': {a: 'HAB', d: 'An {aspect} denoting that the action in question is something done by habit or custom. This can be demonstrated by the English sentence “Mary used to swim.” In this sentence, the understanding is that “Mary” was at one point a regular swimmer, but for some reason quit. In other words, she had the habit of swimming--therefore, the habitual aspect is used.'},
 
@@ -276,7 +274,7 @@ var glossary = { //a = abbreviation, d = definition
 
 'postposition': {a: '', d: 'A {preposition} that comes after a {noun phrase}, as opposed to before. Prepositions and postposition are classified as {adposition|adpositions}.'},
 
-'preposition': {a: 'PREP', d: 'A {word class} which expresses spatial or temporal relations ([in], [under], [towards], [before]) or marks various semantic roles ([of], [for]). Prepositions are named so because they come before a {noun phrase} — [((in)) the garage]. Other languages place these words after the noun phrase, and are called {postposition|postpositions}. Together they called {adposition|adpositions}.'},
+'preposition': {a: 'PREP', d: 'A {word class} which expresses spatial or temporal relations ([in], [under], [towards], [before]) or marks various semantic roles ([of], [for]). Prepositions are named so because they come before a {noun phrase} -- [((in)) the garage]. Other languages place these words after the noun phrase, and are called {postposition|postpositions}. Together they called {adposition|adpositions}.'},
 
 'present': {a: 'PRS', d: 'A {tense} that is used when the action described in the sentence occurs at the same time as the speaker says the sentence. For example, this occurs in sentences such as “Clare walks home”, where the {morpheme} [-s] shows that the walking occurred concurrently to the speaking of the sentence.'},
 
@@ -320,7 +318,7 @@ var glossary = { //a = abbreviation, d = definition
 
 '<p>As a more formal definition, transivity relates to whether a verb can take {object|objects}, and how many objects can take. {ditransitive verb|Ditransitive} verbs take two objects, for example the verb [give] requires both an object to be given ({direct object}) and a recipient ({indirect object}): “I gave the [dog] a [bone]”.'},
 
-'verb': {a:'V', d: 'A {word class} for “doing” words such as [run], [sing], [know]. In English, verbs express a number of {grammatical category|grammatical categories}, for example: {tense} — [walk] vs [walked], {aspect} — such as the {progressive} [walking], and {person} — [I walk] vs [he walk((s))]. In other languages, verbs may express categories such as {mood}, {voice}, and {evidentiality}.' +
+'verb': {a:'V', d: 'A {word class} for “doing” words such as [run], [sing], [know]. In English, verbs express a number of {grammatical category|grammatical categories}, for example: {tense} -- [walk] vs [walked], {aspect} -- such as the {progressive} [walking], and {person} -- [I walk] vs [he walk((s))]. In other languages, verbs may express categories such as {mood}, {voice}, and {evidentiality}.' +
 
 '<p>Verbs are divided into {lexical} verbs and {auxiliary verb|auxiliary verbs}. Lexical verbs may also be classified on whether the verb is required to be “done to” something or not. For example, the verb [love] needs to be done to something: “I love” is not grammatically complete, however “I love ((something))” is. In contrast, the verb [laugh] is not done to something: “I laughed” is correct however “I laughed ((something))” is not. These are called {transitivity|transitive and intransitive} verbs, respectively.'},
 
@@ -356,7 +354,8 @@ function markdownToHTML(string) {
 	 .replace(/\[/g, '<i>')
 	 .replace(/\]/g, '</i>')
 	 .replace(/\(\(/g, '<b>')
-	 .replace(/\)\)/g, '</b>');
+	 .replace(/\)\)/g, '</b>')
+   .replace(/--/g, '—');
 	return string;
 }
 
